@@ -13,7 +13,7 @@ export class SubscriptionController {
 
   @Post()
   async subscribe(@Req() req, @Body() body: CreateSubscriptionDto) { 
-    const { username } = req.user; // Assuming JWT middleware sets req.user
+    const { username } = req.user; 
     const user = await this.userService.findUserByUsername(username);
 
     if (user.age < 18 && body.plan !== 'Kids') {
